@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tabulka</title>
+    <style>
+      table {
+        border-collapse: collapse;
+      }
+
+      td,
+      th {
+        border: 1px solid black;
+        width: 20px;
+        height: 20px;
+      }
+      th {
+        background-color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      const dny = ["po", "út", "st", "čt", "pá", "so", "ne"]; // Pole s názvy dnů v týdnu
+
+      let aktualniDatum = new Date(); // Vytvoření objektu s aktuálním datem
+      let aktualniMesic = aktualniDatum.getMonth(); // Získání aktuálního měsíce
+      aktualniDatum.setDate(1); // Nastavení dne na 1 pro získání prvního dne měsíce
+      let prvniDen = aktualniDatum.getDay(); // Získání čísla prvního dne v týdnu
+      let prvniDenCislo = prvniDen === 0 ? 7 : prvniDen; // Převod čísla prvního dne na odpovídající pořadí v týdnu
+
+      // Získání počtu dnů v aktuálním měsíci
+      let pocetDniVMesici = new Date(2023, aktualniMesic + 1, 0).getDate();
+
+      // Funkce pro vytvoření tabulky
+      function vytvorTabulku() {
+        let tabulka = document.createElement("table"); // Vytvoření prvku <table>
+        document.body.appendChild(tabulka); // Přidání tabulky do <body> elementu
+        for (var y = 0; y < 6; y++) {
+          let tr = document.createElement("tr"); // Vytvoření prvku <tr>
+          tabulka.appendChild(tr); // Přidání řádku do tabulky
+          for (var x = 0; x < 7; x++) {
+            if (y == 0) {
+              let th = document.createElement("th"); // Vytvoření prvku <th> pro hlavičku tabulky
+              th.textContent = dny[x]; // Nastavení textu na název dne v týdnu
+              tr.appendChild(th); // Přidání sloupce do řádku
+            } else {
+              let td = document.createElement("td"); // Vytvoření prvku <td> pro buňku v tabulce
+              let denMesice = (y - 1) * 7 + x + 1 - prvniDenCislo + 1; // Výpočet čísla dne v měsíci
+              if (denMesice > 0 && denMesice <= pocetDniVMesici) {
+                td.textContent = denMesice; // Nastavení textu na číslo dne v měsíci
+              }
+              tr.appendChild(td); // Přidání buňky do řádku
+            }
+          }
+        }
+      }
+
+      // Spuštění funkce pro vytvoření tabulky po načtení stránky
+      window.onload = function () {
+        vytvorTabulku();
+      };
+    </script>
+  </body>
+</html>
