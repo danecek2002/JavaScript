@@ -1,0 +1,142 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700&display=swap");
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: "Roboto", sans-serif;
+}
+.container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background: linear-gradient(to bottom right, #0f4c75, #3282b8);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: overlay;
+  background-position: center;
+}
+
+h1{
+  font-size: 8rem;
+}
+
+.number{
+  font-size: 6rem;
+}
+.buttons {
+  display: flex;
+  flex-direction: rows;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.decrease,
+.reset,
+.increase {
+  margin-top: 20px;
+  width: 180px;
+  height: 50px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.6rem;
+  border-radius: 25px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.decrease:before,
+.reset:before,
+.increase:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.3);
+  transition: transform 0.6s ease;
+  transform: skewX(-20deg);
+}
+
+.decrease:after,
+.reset:after,
+.increase:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.1)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.decrease:hover:before,
+.reset:hover:before,
+.increase:hover:before {
+  transform: skewX(0);
+  left: 100%;
+}
+
+.decrease:hover:after,
+.reset:hover:after,
+.increase:hover:after {
+  opacity: 1;
+}
+
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 6rem;
+  }
+
+  .number {
+    font-size: 4rem;
+  }
+
+  .buttons {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  h1 {
+    font-size: 4.5rem;
+  }
+
+  .number {
+    font-size: 3rem;
+  }
+
+  .buttons {
+    width: 90%;
+     display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  }
+}

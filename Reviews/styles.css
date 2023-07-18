@@ -1,0 +1,140 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  min-height: 100vh;
+  gap: 5rem;
+}
+
+header {
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  position: relative;
+  color:#494949;
+}
+
+h1::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 3px;
+  background-color:  #ff1493;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  width: 60%;
+  gap: 10px;
+  background: radial-gradient(circle, #ff1493, #9400d3);
+}
+
+.name {
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 5px;
+  font-size: 1.5rem;
+}
+.text{
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
+
+.img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+       
+}
+
+.img img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  filter: grayscale(20%) contrast(120%);
+  transition: transform 0.3s ease;
+}
+
+.img:hover {
+  transform: scale(1.1);
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+
+.btn-surprise {
+ padding: 0.75rem;
+  width: 8rem;
+  border-radius: 4px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  background-color: black;
+}
+
+.btn-left,
+.btn-right {
+  padding: 8px 16px;
+  border-radius: 4px;
+  color: #333333;
+  background-color: #eaeaea;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn-left:hover,
+.btn-right:hover {
+  background-color: #cccccc;
+}
+
+.btn-left {
+  margin-right: 10px; /* Add margin to create spacing between the buttons */
+}
+
+.btn-right {
+  margin-left: 10px; /* Add margin to create spacing between the buttons */
+}
+
+
+.job {
+  color: rgb(212, 212, 212);
+  font-weight: 400;
+  font-size: 0.75rem;
+  text-align: center;
+
+}
+
+
