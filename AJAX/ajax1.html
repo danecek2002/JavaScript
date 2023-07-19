@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ASYNC JS</title>
+  </head>
+  <body>
+    <button id="button">Get Text File</button>
+    <br /><br />
+    <div id="text"></div>
+    <script>
+      // Vytvoření eventListeneru pro kliknutí na tlačítko
+      document.getElementById("button").addEventListener("click", () => {
+        // Vytvoření instance XMLHttpRequest
+        var xhr = new XMLHttpRequest();
+
+        // Nastavení parametrů pro asynchronní GET požadavek na "sample.txt" soubor
+        xhr.open("GET", "sample.txt", true);
+
+        // Výpis stavu readyState do konzole
+        console.log("READYSTATE: ", xhr.readyState);
+
+        // Funkce, která se spustí po dokončení požadavku
+        xhr.onload = function () {
+          if (xhr.status == 200) {
+            document.getElementById("text").innerText = xhr.responseText;
+          } else if (xhr.status == 404) {
+            document.getElementById("text").innerText = "404 Not Found";
+          }
+        };
+
+        // Funkce, která se spustí při probíhajícím požadavku
+        xhr.onprogress = function () {
+          console.log(xhr.readyState);
+        };
+
+        // Funkce, která se spustí při chybě požadavku
+        xhr.onerror = function () {
+          console.log("Request Error");
+        };
+
+        /*
+    Alternativní způsob získání dat pomocí readyStateChange eventu
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+        console.log(xhr.responseText);
+      }
+    };
+  */
+
+        // Odeslání požadavku
+        xhr.send();
+      });
+    </script>
+  </body>
+</html>
