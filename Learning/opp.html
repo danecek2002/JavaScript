@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OOP</title>
+  </head>
+  <body>
+    <script>
+      /*   function Book(title, author, year) {
+        this.title = title;
+        this.author = author;
+        this.year = year;
+      }
+
+      Book.prototype.getSummary = function () {
+        return `${this.title} was written by ${this.author} in ${this.year}`;
+      };
+
+      function Magazine(title, author, year, month) {
+        Book.call(this, title, author, year);
+
+        this.month = month;
+      }
+
+      Magazine.prototype = Object.create(Book.prototype);
+
+      const mag1 = new Magazine("Mag One", "Johj Doe", "2019", "January");
+
+      Magazine.prototype.constructor = Magazine;
+      console.log(mag1); */
+      /* 
+      const bookProtos = {
+        getSummary: function () {
+          return `${this.title} was written by ${this.author} in ${this.year}`;
+        },
+        getAge: () => {},
+      };
+
+      const book1 = Object.create(bookProtos{
+        title: {value: 'Book One'},
+        author: {value: 'John Doe'},
+        year: {value: '1998'}
+      });
+      console.log(book1); */
+
+      class Book {
+        constructor(title, author, year) {
+          this.title = title;
+          this.author = author;
+          this.year = year;
+        }
+
+        getSummary() {
+          return `${this.title} was written by ${this.author} in ${this.year}`;
+        }
+
+        static topBookStore() {
+          return "Barnnes & Noble";
+        }
+      }
+
+      const book1 = new Book("Book One", "John Doe", "1998");
+
+      class Magazine extends Book {
+        constructor(title, author, year, month) {
+          super(title, author, year);
+          this.month = month;
+        }
+      }
+
+      const Mag1 = new Magazine("Mag Ine", "John Doe", "2002", "Jan");
+    </script>
+  </body>
+</html>
